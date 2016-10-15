@@ -1,0 +1,132 @@
+define Client {
+    type: null,
+    intention: null,
+    age: null,
+    income: null,
+    urgency: null,
+    insurance: null,
+    citizenship: null,
+    interest: null,
+    buy_insurance: null,
+    bank: null,
+    period: null,
+    sharing: null
+}
+
+define Offer {
+    title: null,
+    description: null,
+    lack: null
+}
+
+
+rule HLforEU {
+    when {
+        c : Client c.type == "loans" && c.intention == "house" && c.insurance == "mortgage" && c.citizenship == "EU" && c.period <= 25;
+    }
+    then {
+        var o = new Offer({title: "Housing loan for EU Citizens",
+        description: "Life is like a team sport – housing loans tailor-made for you",
+        lack: "A housing loan is intended for all foreign clients, EU member states citizens, who will not be over 75 years old at the end of the repayment period."});
+        emit("offer", o);
+        assert(o);
+    }
+}
+
+
+rule HL {
+    when {
+        c: Client c.type == "loans" && c.intention == "house" && c.citizenship == "Slo" && sharing == true && c.income > 0 && c.interest == "Fixed";
+    }
+    then {
+        var o = new Offer({title: "Housing loan",
+        description: "Life is like a team sport – housing loans tailor-made for you",
+        lack: "A housing loan is intended for all clients, who will not be over 75 years old at the end of the repayment period."});
+        emit("offer", o);
+        assert(o);
+    }
+}
+
+
+rule QHL {
+    when {
+        c: Client c.type == "loans" && c.intention == "house" && c.citizenship == "Slo" && c.income > 0 && c.period <= 10 && c.interest == "Fixed" && c.buy_insurance == true && c.urgency <= 3;
+     }
+    then {
+        var o = new Offer({title: "Quick Housing Loan",
+        description: "The quickest way to giving your home a new look.",
+        lack: "A housing loan is intended for all clients, who will not be over 75 years old at the end of the repayment period."});
+        emit("offer", o);
+        assert(o);
+    }
+}
+
+
+rule CL {
+    when {
+        c: Client c.type == "loans" && c.intention == "cash" && c.citizenship == "Slo" && c.income > 0 && c.interest == "Fixed";
+    }
+    then {
+        var o = new Offer({title: "Cash loan",
+        description: "Quick solution for unexpected financial expenses",
+        lack: "None"});
+        emit("offer", o);
+        assert(o);
+    }
+}
+
+
+rule QCL {
+    when {
+        c: Client c.type == "loans" && c.intention == "cash" && c.urgency <= 3 && c.bank == "SKB" && c.period <= 3 && c.insurance in ["no", "other"];
+
+    }
+    then {
+        var o = new Offer({title: "Quick cash loan",
+        description: "First aid for unexpected financial expenses",
+        lack: "None"});
+        emit("offer", o);
+        assert(o);
+    }
+}
+
+
+rule CarL {
+    when {
+        c: Client c.type == "loans" && c.intention == "car" && c.bank == "SKB" && c.period <= 8;
+    }
+    then {
+        var o = new Offer({title: "Car loan",
+        description: "Are you looking for favourable financing for purchasing a new car?",
+        lack: "None"});
+        emit("offer", o);
+        assert(o);
+    }
+}
+
+
+rule LL {
+    when {
+        c: Client c.type == "loans" && c.citizenship == "Slo" && c.bank == "SKB" && c.insurance == "loan" && c.interest == "Fixed" && c.period <= 5;
+    }
+    then {
+        var o = new Offer({title: "Lombard loan",
+        description: "Lombard loan enables you to acquire a loan by pledging your own assets (term deposit).",
+        lack: "None"});
+        emit("offer", o);
+        assert(o);
+    }
+}
+
+rule 1HL {
+    when {
+        c: Client c.type == "loans" && c.urgency == 1;
+    }
+    then {
+        var o = new Offer({title: "1-hour loan",
+        description: "Favourable loan at the last moment",
+        lack: "None"});
+        emit("offer", o);
+        assert(o);
+    }
+}
