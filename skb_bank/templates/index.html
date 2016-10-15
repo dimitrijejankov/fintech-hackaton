@@ -23,56 +23,22 @@
 
         <link type="text/css" rel="stylesheet" media="screen,projection" href="http://www.skb.si/.resources/cookie/styleCustom.css" />
         <link type="text/css" rel="stylesheet" media="screen,projection" href="static/css/form-slide.css" />
+        <link type="text/css" rel="stylesheet" media="screen,projection" href="static/css/cool-input.css" />
 
-		<link type="text/css" rel="stylesheet" media="screen,projection" href="http://www.skb.si/.resources/website/css/smoothness/jquery-ui-1.7.3.custom.css" /><!--[if lte IE 7]>
-		<link type="text/css" rel="stylesheet" media="screen,projection" href="/.resources/website/css/ie.css"><![endif]--><!--[if IE 7]>
-		<link type="text/css" rel="stylesheet" media="screen,projection" href="/.resources/website/css/ie7.css"><![endif]-->
+		<link type="text/css" rel="stylesheet" media="screen,projection" href="http://www.skb.si/.resources/website/css/smoothness/jquery-ui-1.7.3.custom.css" />
 		<link type="text/css" rel="stylesheet" media="print" href="http://www.skb.si/.resources/website/css/print.css" />
         <link rel="shortcut icon" href="http://www.skb.si/.resources/favicon.ico" />
 
+        <link rel="stylesheet" type="text/css" href="static/css/cs-select.css" />
+		<link rel="stylesheet" type="text/css" href="static/css/elastic-dropdown.css" />
+
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <script type="text/javascript" src="http://www.skb.si/.resources/cookie/pluginCustom.js"></script>
         <script type="text/javascript" src="http://www.skb.si/.resources/cookie/translations.js"></script>
         <script type="text/javascript" src="static/js/form-slide.js"></script>
-        <script type="text/javascript">
-
-            var pageName = "www.skb.si";
-            var pageUrl = "http://www.skb.si/";
-
-            var lang = "en"		//add your logic for setting the language and add appropriate translations to translations.js
-
-            // <![CDATA[
-            cc.initialise({
-
-                /*
-                 Specify type of cookies for consent logic.
-                 Possible predefined values: analytics, social, advertising.
-                 You can add your own, but make sure to provide all the texts (look into translations.js).
-                 */
-                cookies: {
-                    analytics: {    //class="cc-onconsent-analytics"
-
-                    },
-                    social: {       //class="cc-onconsent-social"
-
-                    },
-                    maps: {
-
-                    }
-                },
-                settings: {
-                    bannerPosition: "push",
-                    style: "custom",
-                    cookieApprovedExp: 365, //expiration days for approved cookies
-                    cookieNotApprovedExp: 0, //expiration days for not approved cookies ( <0: no cookie, ==0: session, >0: expiration days )
-                    iframeToCheck: 'infoCalcIframe'
-                },
-
-                strings: window[lang].strings(pageName, pageUrl, "skb_si")		//load appropriate strings (defined in translations.js)
-
-            });
-            // ]]>
-        </script>
 
         
 	</head>
@@ -148,45 +114,90 @@
 		</div>
 		<div id="body">
 			<div class="w">
-				<div id="content">
-                    <!-- multistep form -->
-                    <form id="msform">
-                      <!-- progressbar -->
-                      <ul id="progressbar">
-                        <li class="active">Account Setup</li>
-                        <li>Social Profiles</li>
-                        <li>Personal Details</li>
-                      </ul>
-                      <!-- fieldsets -->
-                      <fieldset>
-                        <h2 class="fs-title">Create your account</h2>
-                        <h3 class="fs-subtitle">This is step 1</h3>
-                        <input type="text" name="email" placeholder="Email" />
-                        <input type="password" name="pass" placeholder="Password" />
-                        <input type="password" name="cpass" placeholder="Confirm Password" />
-                        <input type="button" name="next" class="next action-button" value="Next" />
-                      </fieldset>
-                      <fieldset>
-                        <h2 class="fs-title">Social Profiles</h2>
-                        <h3 class="fs-subtitle">Your presence on the social network</h3>
-                        <input type="text" name="twitter" placeholder="Twitter" />
-                        <input type="text" name="facebook" placeholder="Facebook" />
-                        <input type="text" name="gplus" placeholder="Google Plus" />
-                        <input type="button" name="previous" class="previous action-button" value="Previous" />
-                        <input type="button" name="next" class="next action-button" value="Next" />
-                      </fieldset>
-                      <fieldset>
-                        <h2 class="fs-title">Personal Details</h2>
-                        <h3 class="fs-subtitle">We will never sell it</h3>
-                        <input type="text" name="fname" placeholder="First Name" />
-                        <input type="text" name="lname" placeholder="Last Name" />
-                        <input type="text" name="phone" placeholder="Phone" />
-                        <textarea name="address" placeholder="Address"></textarea>
-                        <input type="button" name="previous" class="previous action-button" value="Previous" />
-                        <input type="submit" name="submit" class="submit action-button" value="Submit" />
-                      </fieldset>
-                    </form>
-				</div>
+                <!-- multistep form -->
+                <form id="msform" style="width:auto">
+                  <!-- fieldsets -->
+                  <fieldset class="partial-form">
+                    <div id="partial-form">
+                        <div id="pertial-from-question">
+                            <p style="font-size:x-large">What are you interested in?</p>
+                        </div>
+                        <ul class="radio-button-group">
+                            <li class="radio-button">
+                                <input type="radio" id="f-option" name="interest">
+                                <label class="radio-button-label" for="f-option">In taking a loan.</label>
+
+                                <div class="check"></div>
+                            </li>
+
+                            <li class="radio-button">
+                                <input type="radio" id="s-option" name="interest">
+                                <label class="radio-button-label" for="s-option">In getting an insurance.</label>
+
+                                <div class="check"><div class="inside"></div></div>
+                            </li>
+
+                            <li class="radio-button">
+                                <input type="radio" id="t-option" name="interest">
+                                <label class="radio-button-label" for="t-option">In acquiring investments funds.</label>
+
+                                <div class="check"><div class="inside"></div></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <input type="button" name="previous" class="previous action-button" value="Previous" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                  </fieldset>
+                  <fieldset class="partial-form">
+                    <div id="partial-form">
+                        <div id="pertial-from-question">
+                            <p style="font-size:x-large">What would loan be intended for?</p>
+                        </div>
+                        <ul class="radio-button-group">
+                            <li class="radio-button">
+                                <input type="radio" id="house-option" name="intention">
+                                <label class="radio-button-label" for="house-option">A house</label>
+
+                                <div class="check"></div>
+                            </li>
+
+                            <li class="radio-button">
+                                <input type="radio" id="car-option" name="intention">
+                                <label class="radio-button-label" for="car-option">A car</label>
+
+                                <div class="check"><div class="inside"></div></div>
+                            </li>
+
+                            <li class="radio-button">
+                                <input type="radio" id="other-option" name="intention">
+                                <label class="radio-button-label" for="other-option">Other...</label>
+
+                                <div class="check"><div class="inside"></div></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <input type="button" name="previous" class="previous action-button" value="Previous" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                  </fieldset>
+                  <fieldset class="partial-form">
+                    <div>
+                        <div id="pertial-from-question">
+                            <p style="font-size:x-large">What age group do you belong to?</p>
+                        </div>
+                        <select class="cs-select cs-skin-elastic">
+                            <option value="" disabled selected>Select your age group...</option>
+                            <option value="18-27" data-class="flag-france">18 - 27</option>
+                            <option value="28-40" data-class="flag-france">28 - 40</option>
+                            <option value="41-55" data-class="flag-france">41 - 55</option>
+                            <option value="56-65" data-class="flag-france">56 - 65</option>
+                            <option value="66+" data-class="flag-france">66+</option>
+                        </select>
+                    </div>
+
+                    <input type="button" name="previous" class="previous action-button" value="Previous" />
+                    <input type="submit" name="submit" class="submit action-button" value="Submit" />
+                  </fieldset>
+                </form>
 			</div>
 		</div>
 		<div id="footer">
@@ -411,6 +422,16 @@
 				if ($j('div.search-analytics-hook').size() > 0) {
 					_paq.push(['trackSiteSearch', $j('div..search-analytics-hook div.term').text(), 'Site search', $j('div..search-analytics-hook div.count').text()]);
 				}
+			})();
+		</script>
+
+        <script src="static/js/classie.js"></script>
+		<script src="static/js/selectFx.js"></script>
+		<script>
+			(function() {
+				[].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
+					new SelectFx(el);
+				} );
 			})();
 		</script>
 
