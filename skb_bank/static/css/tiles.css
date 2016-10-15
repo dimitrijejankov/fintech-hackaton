@@ -1,0 +1,60 @@
+div#content{
+    min-height: 480px !important;
+    width: 100% !important;
+}
+
+.tile-row {
+    border: none;
+    border-color:white;
+}
+
+table#tiles{
+    width: 100% !important;
+    height: 400px !important;
+    border: none !important;
+    table-layout: fixed;
+}
+
+table#tiles td{
+    text-align:center;
+    height: 140px;
+    border: none;
+    outline: none;
+    padding: 0 !important;
+
+}
+
+table#tiles td.image-tile{
+    text-align:center;
+    height: 280px !important;
+    border: none;
+    outline: none;
+    padding: 0 !important;
+
+}
+
+img.tech{
+    width: 95%;
+    height: 100%;
+}
+
+img.tile-img{
+    width: 95%;
+    height: 100%;
+}
+
+img.tile-img:hover{
+    width: 95%;
+    height: 100%;
+    cursor: pointer;
+    opacity: .5;
+}
+
+td.tile{
+
+}
+
+.clear{
+    clear: both;
+}
+
