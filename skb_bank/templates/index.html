@@ -24,6 +24,7 @@
         <link type="text/css" rel="stylesheet" media="screen,projection" href="http://www.skb.si/.resources/cookie/styleCustom.css" />
         <link type="text/css" rel="stylesheet" media="screen,projection" href="static/css/form-slide.css" />
         <link type="text/css" rel="stylesheet" media="screen,projection" href="static/css/cool-input.css" />
+        <link type="text/css" rel="stylesheet" media="screen,projection" href="static/css/rangeslider.css" />
 
 		<link type="text/css" rel="stylesheet" media="screen,projection" href="http://www.skb.si/.resources/website/css/smoothness/jquery-ui-1.7.3.custom.css" />
 		<link type="text/css" rel="stylesheet" media="print" href="http://www.skb.si/.resources/website/css/print.css" />
@@ -195,7 +196,198 @@
                     </div>
 
                     <input type="button" name="previous" class="previous action-button" value="Previous" />
-                    <input type="submit" name="submit" class="submit action-button" value="Submit" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                    <!-- <input type="submit" name="submit" class="submit action-button" value="Submit" /> -->
+                  </fieldset>
+                  <fieldset class="partial-form">
+                    <div id="partial-form">
+                        <div id="pertial-from-question">
+                            <p style="font-size:x-large">What are you interested in?</p>
+                        </div>
+                        <ul class="radio-button-group">
+                            <li class="radio-button">
+                                <input type="radio" id="unemployed-option" name="interest">
+                                <label class="radio-button-label" for="unemployed-option">unemployed</label>
+
+                                <div class="check"></div>
+                            </li>
+                            <li class="radio-button">
+                                <input type="radio" id="less-850-option" name="interest">
+                                <label class="radio-button-label" for="less-850-option">< 850</label>
+
+                                <div class="check"></div>
+                            </li>
+                            <li class="radio-button">
+                                <input type="radio" id="between-850-1250-option" name="interest">
+                                <label class="radio-button-label" for="between-850-1250-option">850 - 1250</label>
+
+                                <div class="check"></div>
+                            </li>
+                            <li class="radio-button">
+                                <input type="radio" id="more-1250-option" name="interest">
+                                <label class="radio-button-label" for="more-1250-option">> 1250</label>
+
+                                <div class="check"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <input type="button" name="previous" class="previous action-button" value="Previous" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                  </fieldset>
+                  <fieldset class="partial-form">
+                    <div id="partial-form">
+                        <div id="pertial-from-question">
+                            <p style="font-size:x-large">How urgent is your loan?</p>
+                        </div>
+                        <ul class="radio-button-group">
+                            <li class="radio-button">
+                                <input type="radio" id="not-urgent-option" name="urgency">
+                                <label class="radio-button-label" for="not-urgent-option">Not Urgent</label>
+
+                                <div class="check"></div>
+                            </li>
+                            <li class="radio-button">
+                                <input type="radio" id="urgent-option" name="urgency">
+                                <label class="radio-button-label" for="urgent-option">Urgent</label>
+
+                                <div class="check"></div>
+                            </li>
+                            <li class="radio-button">
+                                <input type="radio" id="very-urgent-option" name="urgency">
+                                <label class="radio-button-label" for="very-urgent-option">Very Urgent</label>
+
+                                <div class="check"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <input type="button" name="previous" class="previous action-button" value="Previous" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                  </fieldset>
+                  <fieldset class="partial-form">
+                    <div>
+                        <div id="pertial-from-question">
+                            <p style="font-size:x-large">How would you insure your loan?</p>
+                        </div>
+                        <select class="cs-select cs-skin-elastic">
+                            <option value="" disabled selected>Select one option...</option>
+                            <option value="none" data-class="flag-france">none</option>
+                            <option value="mortgage" data-class="flag-france">mortgage</option>
+                            <option value="hypothec" data-class="flag-france">hypothec</option>
+                            <option value="loan-insurance" data-class="flag-france">loan insurance</option>
+                            <option value="other" data-class="flag-france">other</option>
+                        </select>
+                    </div>
+
+                    <input type="button" name="previous" class="previous action-button" value="Previous" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                    <!-- <input type="submit" name="submit" class="submit action-button" value="Submit" /> -->
+                  </fieldset>
+                  <fieldset class="partial-form">
+                    <div id="partial-form">
+                        <div id="pertial-from-question">
+                            <p style="font-size:x-large">What is your citizenship?</p>
+                        </div>
+                        <ul class="radio-button-group">
+                            <li class="radio-button">
+                                <input type="radio" id="slovenia-option" name="citizenship">
+                                <label class="radio-button-label" for="slovenia-option">Slovenia</label>
+
+                                <div class="check"></div>
+                            </li>
+                            <li class="radio-button">
+                                <input type="radio" id="eu-option" name="citizenship">
+                                <label class="radio-button-label" for="eu-option">EU</label>
+
+                                <div class="check"></div>
+                            </li>
+                            <li class="radio-button">
+                                <input type="radio" id="non-eu-option" name="citizenship">
+                                <label class="radio-button-label" for="non-eu-option">Non EU</label>
+
+                                <div class="check"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <input type="button" name="previous" class="previous action-button" value="Previous" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                  </fieldset>
+                  <fieldset class="partial-form">
+                    <div id="partial-form">
+                        <div id="pertial-from-question">
+                            <p style="font-size:x-large">How would you like your interested rate to be?</p>
+                        </div>
+                        <ul class="radio-button-group">
+                            <li class="radio-button">
+                                <input type="radio" id="fixed-option" name="interest-rate">
+                                <label class="radio-button-label" for="fixed-option">fixed</label>
+
+                                <div class="check"></div>
+                            </li>
+                            <li class="radio-button">
+                                <input type="radio" id="variabled-option" name="interest-rate">
+                                <label class="radio-button-label" for="variabled-option">Variabled</label>
+
+                                <div class="check"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <input type="button" name="previous" class="previous action-button" value="Previous" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                  </fieldset>
+                  <fieldset class="partial-form">
+                    <div id="partial-form">
+                        <div id="pertial-from-question">
+                            <p style="font-size:x-large">Are you interested in buying an insurance for a better interested rate?</p>
+                        </div>
+                        <ul class="radio-button-group">
+                            <li class="radio-button">
+                                <input type="radio" id="yes-better-option" name="interest-rate">
+                                <label class="radio-button-label" for="yes-better-option">Yes</label>
+
+                                <div class="check"></div>
+                            </li>
+                            <li class="radio-button">
+                                <input type="radio" id="no-better-option" name="interest-rate">
+                                <label class="radio-button-label" for="no-better-option">No</label>
+
+                                <div class="check"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <input type="button" name="previous" class="previous action-button" value="Previous" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
+                  </fieldset>
+                  <fieldset class="partial-form">
+                    <div id="partial-form">
+                        <div id="pertial-from-question">
+                            <p style="font-size:x-large">Are you already a bank client?</p>
+                        </div>
+                        <input type="range" min="10" max="11" step="0.1" value="10.2" data-rangeslider>
+                    </div>
+                    <script src="static/js/rangeslider.js"></script>
+
+                    <script>
+                        $('input[type="range"]').rangeslider({
+                        // Deactivate the feature detection
+                        polyfill: false,
+                        // Callback function
+                        onInit: function() {
+                            //valueOutput(this.$element[0]);
+                        },
+                        // Callback function
+                        onSlide: function(position, value) {
+                            console.log('onSlide');
+                            console.log('position: ' + position, 'value: ' + value);
+                        },
+                        // Callback function
+                        onSlideEnd: function(position, value) {
+                            console.log('onSlideEnd');
+                            console.log('position: ' + position, 'value: ' + value);
+                        }
+                    });
+                    </script>
+                    <input type="button" name="previous" class="previous action-button" value="Previous" />
+                    <input type="button" name="next" class="next action-button" value="Next" />
                   </fieldset>
                 </form>
 			</div>
