@@ -40,6 +40,7 @@
         <script type="text/javascript" src="http://www.skb.si/.resources/cookie/pluginCustom.js"></script>
         <script type="text/javascript" src="http://www.skb.si/.resources/cookie/translations.js"></script>
         <script type="text/javascript" src="static/js/form-slide.js"></script>
+        <script type="text/javascript" src="static/js/submit-form.js"></script>
 
         
 	</head>
@@ -125,7 +126,7 @@
                         </div>
                         <ul class="radio-button-group">
                             <li class="radio-button">
-                                <input type="radio" id="f-option" name="interest">
+                                <input type="radio" id="f-option" name="productType">
                                 <label class="radio-button-label" for="f-option">Taking a loan</label>
 
                                 <div class="check"></div>
@@ -184,7 +185,7 @@
                         <div id="pertial-from-question">
                             <p style="font-size:x-large">What age group do you belong to?</p>
                         </div>
-                        <select class="cs-select cs-skin-elastic">
+                        <select id='ageGroup' class="cs-select cs-skin-elastic">
                             <option value="" disabled selected>Select your age group...</option>
                             <option value="18-27" data-class="flag-france">18 - 27</option>
                             <option value="28-40" data-class="flag-france">28 - 40</option>
@@ -267,7 +268,7 @@
                         <div id="pertial-from-question">
                             <p style="font-size:x-large">How would you like to insure your loan?</p>
                         </div>
-                        <select class="cs-select cs-skin-elastic">
+                        <select id='loanInsurance' class="cs-select cs-skin-elastic">
                             <option value="" disabled selected>Select one option...</option>
                             <option value="mortgage" data-class="flag-france">Mortgage</option>
                             <option value="loan-insurance" data-class="flag-france">Loan insurance</option>
@@ -311,7 +312,7 @@
                   </fieldset>
                   <fieldset class="partial-form">
                     <div id="partial-form">
-                        <div id="pertial-from-question">
+                        <div id="partial-from-question">
                             <p style="font-size:x-large">Are you already a bank client?</p>
                         </div>
                         <ul class="radio-button-group">
@@ -340,18 +341,18 @@
                   </fieldset>
                   <fieldset class="partial-form">
                     <div id="partial-form">
-                        <div id="pertial-from-question">
+                        <div id="partial-from-question">
                             <p style="font-size:x-large">How would you like your interest rate to be?</p>
                         </div>
                         <ul class="radio-button-group">
                             <li class="radio-button">
-                                <input type="radio" id="fixed-option" name="interest-rate">
+                                <input type="radio" id="fixed-option" name="interests">
                                 <label class="radio-button-label" for="fixed-option">Fixed</label>
 
                                 <div class="check"></div>
                             </li>
                             <li class="radio-button">
-                                <input type="radio" id="variabled-option" name="interest-rate">
+                                <input type="radio" id="variabled-option" name="interests">
                                 <label class="radio-button-label" for="variabled-option">Variable</label>
 
                                 <div class="check"></div>
@@ -382,7 +383,7 @@
                         </ul>
                     </div>
                     <input type="button" name="previous" class="previous action-button" value="Previous" />
-                    <input type="button" name="next" class="next action-button" value="Next" />
+                    <input id='form-submit' type="button" name="next" class="next action-button" value="Next" />
                   </fieldset>
                 </form>
 			</div>
