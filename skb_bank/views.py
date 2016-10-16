@@ -1,7 +1,7 @@
 import json
 from django.http import JsonResponse
 from django.views.generic import View
-from skb_bank.utils import get_matching_loans
+from skb_bank.utils import get_matching_loans, dbscan_cluster
 from .models import Clients
 
 
@@ -80,3 +80,18 @@ class RestView(View):
             return JsonResponse(get_matching_loans(json_values), status=200, safe=False)
         except Exception as e:
             return JsonResponse({'message': 'Bad request'}, status=400)
+
+    def get(self, request):
+        all_clients = []
+        clients = Clients.objects.all()
+        for client in clients:
+            this_client = []
+            this_client.append(client.age)
+            this_client.append(client.income)
+            this_client.append(client.intention)
+            all_clients.append(this_client)
+
+        cluster_list = dbscan_cluster(all_clients)
+        return JsonResponse({"message": "Clustering based on client's age, income and intentions",
+                             "groups": len(cluster_list),
+                             "clusters": cluster_list}, status=200)
