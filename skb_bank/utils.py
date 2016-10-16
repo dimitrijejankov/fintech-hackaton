@@ -1,3 +1,5 @@
+from sklearn.cluster import DBSCAN
+from collections import Counter
 # coding=utf-8
 # returns list of 3 items with title, description and lack message
 def get_matching_loans(client_data):
@@ -125,3 +127,15 @@ def compare_loans(loan, client):
         message = message[:-2]
 
     return ret_val, message
+
+
+# dbscan implementation for 3D
+def dbscan_cluster(data):
+    db = DBSCAN(eps=0.1118, min_samples=1).fit(data)
+    labels = db.labels_
+    my_counter = Counter(labels)
+    ret_val = []
+    for i in range(len(my_counter)):
+        ret_val.append(my_counter[i])
+
+    return ret_val
