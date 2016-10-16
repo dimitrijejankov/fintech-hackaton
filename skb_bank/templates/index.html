@@ -42,6 +42,21 @@
         <script type="text/javascript" src="static/js/form-slide.js"></script>
         <script type="text/javascript" src="static/js/submit-form.js"></script>
 
+        <script type="text/javascript">
+            $(document).ready( function () {
+                $("#first-choice").click(function () {
+                    window.location.href="http://www.google.com";
+                });
+                $("#third-choice").click(function () {
+                    window.location.href="http://www.google.com";
+                });
+                $("#second-choice").click(function () {
+                    window.location.href="http://www.google.com";
+                });
+            });
+
+        </script>
+
         
 	</head>
 	<body class="lang-en" lang="en">
@@ -115,7 +130,7 @@
 			</div>
 		</div>
 		<div id="body" style="min-height: 541px !important;">
-			<div class="w">
+			<div class="w" id="w">
                 <!-- multistep form -->
                 <form id="msform" style="width:auto">
                   <!-- fieldsets -->
@@ -386,9 +401,58 @@
                     <input id='form-submit' type="button" name="next" class="next action-button" value="Next" />
                   </fieldset>
                 </form>
+
+
+                <!-- LINKOVI SU OKO 45. LINIJE KODA !!! -->
+                <div id="loans" style="width:80%; margin: 0 auto; display:none">
+                    <div id="first-choice" class="first" style="color: white; margin: 0 auto; width: 100%; background-color: #cf0024; height: 250px; cursor:pointer">
+                        <span id="numOneTitle" style=" font-size: 40px; margin-left: 5px">Title</span>
+                        <p id="numOneDescription" style="font-size: x-large; text-align: center">"Description Lorem Ipsum Hasan Sakic Dragan David"</p>
+                        <p id="numOneLack" style="position: relative; text-align: right; font-size: x-large; top:100px; margin-right: 5px">Best Match</p>
+                    </div>
+                    <div id="second-choice" class="lower" style=" cursor:pointer; color: black; width: 49%; margin-top: 12px; float:left; height: 200px; background-color: #bcbcbc">
+                        <span id="numTwoTitle" style="font-size: 35px;  margin-left: 5px">Title</span>
+                        <p id="numTwoLack" style="font-size: 15px;  margin-right: 5px; text-align: right; position:relative; top:90px">Lacks</p>
+                    </div>
+                    <div id="third-choice" class="lower" style=" cursor:pointer; color: white; width: 49%; margin-top: 12px; float:right; height: 200px; background-color: #000">
+                        <span id="numThreeTitle" style="font-size: 35px;  margin-left: 5px">Title</span>
+                        <p id="numThreeLack" style="font-size: 15px;  margin-left: 5px; margin-right: 5px; text-align: right; position:relative; top:90px">Lacks</p>
+                    </div>
+
+                </div>
+
+        <!--        <div id="selectedLoans" style=": width: 100%">
+                    <a id="numOneHref" href="">
+                        <div id="numOne" style="color: white; background-color: #cf0024; height: 250px; margin-left: 85px; margin-right: 85px">
+                            <p id="numOneTitle" style=" font-size: 40px; margin-left: 5px">Title</p>
+                            <p id="numOneDescription" style="font-size: x-large; text-align: center">"Description Lorem Ipsum Hasan Sakic Dragan David"</p>
+                            <p id="numOneLack" style="position: relative; text-align: right; font-size: x-large; top:95px; margin-right: 5px">Best Match</p>
+                        </div>
+                    </a>
+
+
+
+                        <div id="numTwo" style="color:black; width:37%; height:200px; background-color:#bcbcbc; margin-left: 85px; margin-top:10px">
+                            <span id="numTwoTitle" style="font-size: 35px;  margin-left: 5px">Title</span>
+                        </div>
+
+                        <div id="numThree" style="width:37%; color:white; height:200px; background-color:black; position: relative; float:left; margin-right:85px; margin-top:10px">
+                            <p id="numThreeTitle" style="font-size: 35px; color:black; margin-left: 5px">Title</p>
+                        </div>
+
+
+                </div>-->
+
+
+
 			</div>
+
+
+
 		</div>
         <div style="clear: both;"></div>
+
+
 		<div id="footer">
 			<div class="w">
 				<ul class="level-1 box">
