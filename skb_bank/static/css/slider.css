@@ -1,0 +1,31 @@
+#chosen {
+border-radius:10px;
+width:45px;
+padding-top:10px; padding-bottom:10px;
+background-image: -webkit-linear-gradient(top, #cccccc, #330000);
+background-image: -o-linear-gradient(top, #cccccc, #330000);
+background-image: -moz-linear-gradient(top, #cccccc, #330000);
+text-align:center;
+color:#ffffff;
+font-weight:bold;
+font-size:large;
+margin-left:40px;
+}
+
+#slider {
+margin-left:10px;
+}
+
+/*this is only for webkit, not opera*/
+input[type='range'] {
+-webkit-appearance: none;
+padding-left:2px; padding-right:2px;
+-webkit-border-radius: 5px;
+background-image: -webkit-linear-gradient(top, #000000, #333333, #000000);
+}
+
+#picHolder {
+width:250px;
+height:240px;
+margin:10px;
+}
