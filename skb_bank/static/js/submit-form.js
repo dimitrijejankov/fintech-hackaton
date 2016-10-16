@@ -61,11 +61,17 @@ $( document ).ready(function(){
             contentType: 'application/json',
             type: 'POST'
         }).done(function(msg) {
-            console.log(msg);
 
-            $('#w').html("");
+            $('#loans').css('display', 'block');
             
+            $('#numOneTitle').text(msg[0].title);
+            $('#numOneDescription').text(msg[0].description);
 
+            $('#numTwoTitle').text(msg[1].title);
+            $('#numTwoLack').text(msg[1].lack);
+
+            $('#numThreeTitle').text(msg[2].title);
+            $('#numThreeLack').text(msg[2].lack);
         });
     });
 
