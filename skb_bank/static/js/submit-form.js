@@ -28,30 +28,30 @@ $( document ).ready(function(){
 
         answers.age = $('#ageGroup').val();
 
-        if($('#unemployed-option').is(':checked')) { answers.income = "unemployed" }
-        if($('#less-850-option').is(':checked')) { answers.income = "<850" }
-        if($('#between-850-1250-option').is(':checked')) { answers.income = "850-1250" }
-        if($('#more-1250-option').is(':checked')) { answers.income = ">1250" }
+        if($('#unemployed-option').is(':checked')) { answers.income = 0 }
+        if($('#less-850-option').is(':checked')) { answers.income = 850 }
+        if($('#between-850-1250-option').is(':checked')) { answers.income = 1250 }
+        if($('#more-1250-option').is(':checked')) { answers.income = 1300 }
 
-        if($('#not-urgent-option').is(':checked')) { answers.urgency = "not urgent" }
-        if($('#urgent-option').is(':checked')) { answers.urgency = "urgent" }
-        if($('#very-urgent-option').is(':checked')) { answers.urgency = "very urgent" }
+        if($('#not-urgent-option').is(':checked')) { answers.urgency = 5 }
+        if($('#urgent-option').is(':checked')) { answers.urgency = 3 }
+        if($('#very-urgent-option').is(':checked')) { answers.urgency = 1 }
         
         answers.insurance = $('#loanInsurance').val();
 
-        if($('#slovenia-option').is(':checked')) { answers.citizenship = "slovenian" }
-        if($('#eu-option').is(':checked')) { answers.citizenship = "eu" }
-        if($('#non-eu-option').is(':checked')) { answers.citizenship = "non-eu" }
+        if($('#slovenia-option').is(':checked')) { answers.citizenship = "Slo" }
+        if($('#eu-option').is(':checked')) { answers.citizenship = "EU" }
+        if($('#non-eu-option').is(':checked')) { answers.citizenship = "non-EU" }
 
-        if($('#yes-client-skb-option').is(':checked')) { answers.bank = "yes, skb" }
-        if($('#yes-client-no-skb-option').is(':checked')) { answers.bank = "yes, other" }
+        if($('#yes-client-skb-option').is(':checked')) { answers.bank = "SKB" }
+        if($('#yes-client-no-skb-option').is(':checked')) { answers.bank = "other" }
         if($('#no-client-option').is(':checked')) { answers.bank = "no" }
 
-        if($('#fixed-option').is(':checked')) { answers.interest = "fixed" }
-        if($('#variabled-option').is(':checked')) { answers.interest = "variable" }
+        if($('#fixed-option').is(':checked')) { answers.interest = "Fixed" }
+        if($('#variabled-option').is(':checked')) { answers.interest = "Variabled" }
 
-        if($('#yes-better-option').is(':checked')) { answers.buy_insurance = "yes" }
-        if($('#no-better-option').is(':checked')) { answers.buy_insurance = "no" }
+        if($('#yes-better-option').is(':checked')) { answers.buy_insurance = true }
+        if($('#no-better-option').is(':checked')) { answers.buy_insurance = false }
 
         console.log(answers);
 
