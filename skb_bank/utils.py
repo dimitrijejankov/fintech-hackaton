@@ -1,5 +1,10 @@
-from sklearn.cluster import DBSCAN
+# coding=utf-8
+from sklearn.cluster import DBSCAN, MeanShift, estimate_bandwidth
 from collections import Counter
+
+import numpy as np
+import math
+
 # coding=utf-8
 # returns list of 3 items with title, description and lack message
 def get_matching_loans(client_data):
@@ -131,11 +136,28 @@ def compare_loans(loan, client):
 
 # dbscan implementation for 3D
 def dbscan_cluster(data):
-    db = DBSCAN(eps=0.1118, min_samples=1).fit(data)
+    bandwidth = estimate_bandwidth(np.asarray(data), quantile=0.5, n_samples=len(data))
+
+    db = MeanShift(bandwidth=bandwidth, bin_seeding=True).fit(data)
+
     labels = db.labels_
+    cluster_centers = db.cluster_centers_
+
     my_counter = Counter(labels)
     ret_val = []
+    cl_centers = []
     for i in range(len(my_counter)):
         ret_val.append(my_counter[i])
+        tmp = ["Group " + str(i), str(cluster_centers[i][0]) + " years", str(cluster_centers[i][1]) + " €"]
 
-    return ret_val
+        val = math.ceil(cluster_centers[i][2])
+        if val == 1:
+            tmp.append("House")
+        elif val == 2:
+            tmp.append("Car")
+        else:
+            tmp.append("Other")
+
+        cl_centers.append(tmp)
+
+    return ret_val, cl_centers

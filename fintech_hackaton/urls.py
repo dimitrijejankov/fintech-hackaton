@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^tiles/$', TemplateView.as_view(template_name="tiles.html")),
     url(r'^rest/$', RestView.as_view()),
+    url(r'^stats/$', TemplateView.as_view(template_name="stats.html")),
     url(r'^$', TemplateView.as_view(template_name="index.html"))
 ]
