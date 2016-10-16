@@ -16,7 +16,7 @@ $( document ).ready(function(){
             bank: "",
             interest: "",
             buy_insurance: ""
-        }
+        };
 
         if($('#f-option').is(':checked')) { answers.type = "Loan" }
         if($('#s-option').is(':checked')) { answers.type = "Insurance" }
@@ -56,10 +56,13 @@ $( document ).ready(function(){
         console.log(answers);
 
 
-        /*$.post( "ajax/test.html", function( data ) {
-          $( ".result" ).html( data );
-        });*/
-
+        $.ajax("rest/", {
+            data: JSON.stringify(answers),
+            contentType: 'application/json',
+            type: 'POST',
+        }).done(function(msg) {
+            alert(msg);
+        });
     });
 
 

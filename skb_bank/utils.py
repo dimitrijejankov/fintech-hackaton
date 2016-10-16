@@ -1,3 +1,4 @@
+# coding=utf-8
 # returns list of 3 items with title, description and lack message
 def get_matching_loans(client_data):
     # initialize loans
