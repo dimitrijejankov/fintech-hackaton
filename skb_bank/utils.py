@@ -148,7 +148,22 @@ def dbscan_cluster(data):
     cl_centers = []
     for i in range(len(my_counter)):
         ret_val.append(my_counter[i])
-        tmp = ["Group " + str(i), str(cluster_centers[i][0]) + " years", str(cluster_centers[i][1]) + " €"]
+        tmp = ["Group " + str(i)]
+
+        val = math.ceil(cluster_centers[i][0])
+
+        if val == 1:
+            tmp.append("18-27 years")
+        elif val == 2:
+            tmp.append("28-40 years")
+        elif val == 3:
+            tmp.append("41-55 years")
+        elif val == 4:
+            tmp.append("56-65 years")
+        else:
+            tmp.append("66+ years")
+
+        tmp.append(str(cluster_centers[i][1]) + " €")
 
         val = math.ceil(cluster_centers[i][2])
         if val == 1:
