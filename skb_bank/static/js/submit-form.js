@@ -59,9 +59,13 @@ $( document ).ready(function(){
         $.ajax("rest/", {
             data: JSON.stringify(answers),
             contentType: 'application/json',
-            type: 'POST',
+            type: 'POST'
         }).done(function(msg) {
-            alert(msg);
+            console.log(msg);
+
+            $('#w').html("");
+            
+
         });
     });
 
