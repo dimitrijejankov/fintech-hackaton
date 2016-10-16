@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 class RestView(View):
     def post(self, request):
         try:
-            json_values = json.loads(request.body)
+            json_values = json.loads(request.body.decode("utf-8"))
             return JsonResponse(get_matching_loans(json_values), status=200, safe=False)
         except Exception as e:
             return JsonResponse({'message': 'Bad request'}, status=400)
